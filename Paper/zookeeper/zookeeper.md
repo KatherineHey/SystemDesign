@@ -22,7 +22,7 @@ quote from https://github.com/kophy/notes/blob/master/docs/zookeeper/zookeeper.m
 
 
 
-![znode](images/znode.jpg)
+![znode](znode.jpg)
 
 ### Client API
 
@@ -46,4 +46,4 @@ quote from https://github.com/kophy/notes/blob/master/docs/zookeeper/zookeeper.m
 - Double Barrier
   
  
-![components](images/components.jpg)
+![components](components.jpg)
