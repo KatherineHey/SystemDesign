@@ -1,8 +1,8 @@
 # Abstract
-MapReduce is a programming model and an associ-ated implementation for processing and generating largedata sets. 
+MapReduce is a programming model and an associ-ated implementation for processing and generating large data sets. 
 
-Users specify a map function that processes akey/value pair to generate a set of intermediate key/valuepairs, 
-and a reduce function that merges all intermediatevalues associated with the same intermediate key.
+Users specify a map function that processes akey/value pair to generate a set of intermediate key/value pairs, 
+and a reduce function that merges all intermediate values associated with the same intermediate key.
 
 ## Intuitive: 
 Google have implemented hundreds of special-purposecomputations  that  process  large  amounts  of  raw  data,
