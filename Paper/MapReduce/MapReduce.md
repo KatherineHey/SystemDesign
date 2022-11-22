@@ -5,21 +5,21 @@ Users specify a map function that processes akey/value pair to generate a set of
 and a reduce function that merges all intermediate values associated with the same intermediate key.
 
 ## Intuitive: 
-Google have implemented hundreds of special-purposecomputations  that  process  large  amounts  of  raw  data,
-such as crawled documents,  web request logs,  etc., to compute various kinds of derived data, such as invertedindices, 
-summaries of the number of pagescrawled per host, the set of most frequent queries in a given day, etc.
+Google have implemented hundreds of special-purpose computations  that  process  large  amounts  of  raw  data,
+such as crawled documents,  web request logs,  etc., to compute various kinds of derived data, such as inverted indices, 
+summaries of the number of page scrawled per host, the set of most frequent queries in a given day, etc.
 
-Most such computations are conceptu-ally straightforward.  
-However, the input data is usually large and the computations have to be distributed acrosshundreds or thousands of machines in order to finish ina reasonable amount of time.
+Most such computations are conceptually straightforward.  
+However, the input data is usually large and the computations have to be distributed across hundreds or thousands of machines in order to finish in a reasonable amount of time.
 
 ## Solution:
-A new abstraction (mapreduce) that allows us to express the simple computa-tions we were trying to perform 
-but hides the messy de-tails of parallelization, fault-tolerance, data distributionand load balancing in a library.  
+A new abstraction (mapreduce) that allows us to express the simple computations we were trying to perform 
+but hides the messy details of parallelization, fault-tolerance, data distribution and load balancing in a library.  
 
 # Model
 
 ### Map
-- (Written by the user) takes an input pair and pro-duces a set ofintermediatekey/value pairs. 
+- (Written by the user) takes an input pair and produces a set of intermediate key/value pairs. 
 - Groups together all intermediate values associated with the same intermediate key I and passes them to the Reduce function.
 
 
@@ -32,7 +32,7 @@ but hides the messy de-tails of parallelization, fault-tolerance, data distribut
 - Partitioning the input data into a set of M splits.  
 - The input splits can be processed in parallel by different machines
 
-   One of the copies of the program is special – the master. The rest are workers that are assigned workby the master. 
+   One of the copies of the program is special – the master. The rest are workers that are assigned work by the master. 
    There are M map tasks and R reduce tasks to assign. The master picks idle workers and assigns each one a map task or a reduce task.
 
 - Reduce invocations are distributed by partitioning the intermediate key space into R pieces using a partitioning function (e.g.,hash(key)modR).
@@ -52,8 +52,8 @@ but hides the messy de-tails of parallelization, fault-tolerance, data distribut
 ## master
 - For each map task and reduce task, it stores the state (idle,in-progress,orcompleted), and the identity of the worker machine(for non-idle tasks).
 - The master is the conduit through which the location of intermediate file regions is propagated from map tasks to reduce tasks. 
-- Master stores the locations and sizes of the R inter-mediate file regions produced by the map task. 
-- Updates to this location and size information are received as map tasks are completed. The information is pushed incrementally to workers that have in-progress reduce tasks.
+- Master stores the locations and sizes of the R intermediate file regions produced by the map task. 
+- Updates to this location and size information are received as map tasks are completed. The information is pushed incrementally to workers that have inprogress reduce tasks.
 
 ## Fault Tolerance
 - Master fails, redo whole Map Reduce.
